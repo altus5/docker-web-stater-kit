@@ -31,6 +31,7 @@ RUN mv ~/.npm /home/nobita/.a5cache/ \
 
 COPY *.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/*.sh
+USER nobita
 
 VOLUME ["/srv/web-starter-kit"]
 
