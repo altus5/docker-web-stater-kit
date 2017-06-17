@@ -21,8 +21,9 @@ RUN mkdir -p /home/nobita/.a5cache \
   && cd /home/nobita/.a5cache \
   && curl -Ss -L https://github.com/google/web-starter-kit/releases/download/v0.6.5/web-starter-kit-0.6.5.zip > web-starter-kit-0.6.5.zip \
   && unzip web-starter-kit-0.6.5.zip \
-  && mv web-starter-kit-0.6.5 web-starter-kit \
-  && cd web-starter-kit \
+  && mv web-starter-kit-0.6.5 web \
+  && rm web-starter-kit-0.6.5.zip \
+  && cd web \
   && npm install \
   && npm install gulp -g
 
@@ -33,6 +34,6 @@ COPY *.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/*.sh
 USER nobita
 
-VOLUME ["/srv/web-starter-kit"]
+VOLUME ["/srv/web"]
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
